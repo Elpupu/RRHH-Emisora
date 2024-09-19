@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Message</title>
+    <style>
+        .error-dialog {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .error-dialog p {
+            color: #721c24;
+            font-weight: bold;
+        }
+
+        .close-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="error-dialog">
+    <p>¡Ocurrió un error!</p>
+    <p>El CI introducido ya existe.</p>
+    <button class="close-btn" onclick="closeDialog()">Cerrar</button>
+</div>
+
+<script>
+        function closeDialog() {
+            // Puedes agregar acciones adicionales al cerrar el diálogo
+            window.location.href = document.referrer;
+        }
+    </script>
+</body>
+</html>

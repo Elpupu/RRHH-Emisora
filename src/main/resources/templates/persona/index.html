@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Delegación de Gaviota - Persona</title>
+
+    <link th:replace="~{/components/style}">
+
+</head>
+
+<body id="page-top">
+
+    <div id="wrapper">
+
+        <link th:replace="~{/components/nav-left}">
+
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+
+                <link th:replace="~{/components/nav-top}">
+
+                <!--Contenido-->
+
+                <div class="card shadow mb-4">
+
+                    <div class="card-header py-3">
+                        <a th:href="@{/persona/new}" class="btn btn-primary"><i class="fas fa-plus"></i>Nuevo</a>
+                    </div>
+
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Listado de Personas</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Ci</th>
+                                        <th>Nombre</th>
+                                        <th>Apellido1</th>
+                                        <th>Apellido2</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:id="@{'columnTablePersonaNo-' + ${persona.ci}}" th:each="persona : ${personas}">
+                                        <td th:text="${persona.ci}"></td>
+                                        <td th:text="${persona.nombre_persona}"></td>
+                                        <td th:text="${persona.apellido1}"></td>
+                                        <td th:text="${persona.apellido2}"></td>
+                                        <td>
+                                            <a th:href="@{'/persona/' + ${persona.ci}}"
+                                                class="btn btn-info btn-circle"><i class="fas fa-eye"></i>
+                                            </a>
+                                            <a th:href="@{'/persona/' + ${persona.ci} + '/edit'}"
+                                                class="btn btn-success btn-circle"><i class="fas fa-edit"></i>
+                                            </a>
+
+                                            <a data-toggle="modal"
+                                                th:data-target="'#removeModalPersona'+ ${persona.ci}"
+                                                class="btn btn-danger btn-circle">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+
+                                            <div th:replace="~{/components/error-modal.html :: removeModal(
+                                                id=${persona.ci},
+                                                entity='Persona',
+                                                title='Eliminar persona',
+                                                message='Deseas eliminar esta persona'
+                                            )}"></div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <link th:replace="~{/components/footer}">
+        </div>
+    </div>
+
+    <!-- ERROR-MODAL-->
+
+    <link th:replace="~{/components/script}">
+    <script>
+        function deleteEntity(id, entity) {
+            fetch('/' + entity.toLowerCase() + '/' + id,{
+                method: 'delete'
+            }).then(function(response) {
+                var table = $("dataTable" + entity).DataTable();
+                table.row($("#columnTable" + entity + "No-" + id).remove());
+                var modal = $(".modal-backdrop");
+                modal.toArray().forEach(element => element.style.display = 'none');
+            }).catch(function (err){
+                //Called if the server return any errors
+                console.log("Error:" + err);
+            });
+        }
+    </script>
+
+</body>
+
+</html>

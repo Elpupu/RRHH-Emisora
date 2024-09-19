@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Delegación de Gaviota - Militancia</title>
+
+    <link th:replace="~{/components/style}">
+
+</head>
+
+<body id="page-top">
+
+    <div id="wrapper">
+
+        <link th:replace="~{/components/nav-left}">
+
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+
+                <link th:replace="~{/components/nav-top}">
+
+                <!--Contenido-->
+
+                <h1 class="h3 mb-2 text-gray-800"> Agregar una nueva militancia</h1>
+                <form th:action="@{/militancia/new}" th:method="post" th:object="${militancia}">
+                    <div>
+                        <div class="form-group col-sm-6">
+                            <label for="militancia-nombre-new">Nombre</label>
+                            <input type="text" class="form-control" id="militancia-nombre-new" placeholder="Nombre" name="
+                        nombre" th:value="*{nombre_milit}" th:field="*{nombre_milit}">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="militancia-id-new">Id</label>
+                            <input type="text" class="form-control" id="militancia-id-new" placeholder="Id" name="
+                        id" th:value="*{id_milit}" th:field="*{id_milit}">
+                        </div>
+                        <a th:href="@{/militancia/}" class="btn btn-secondary" type="button"><i class="corner-up-left"></i>Regresar</a>
+                        <button class="form-group btn btn-primary" type="submit">Adicionar militancia</button>
+                    </div>
+                </form>
+            </div>
+
+            <link th:replace="~{/components/footer}">
+        </div>
+    </div>
+
+    <!-- ERROR-MODAL-->
+
+    <link th:replace="~{/components/script}">
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Delegación de Gaviota - Rol</title>
+
+    <link th:replace="~{/components/style}">
+
+</head>
+
+<body id="page-top">
+
+    <div id="wrapper">
+
+        <link th:replace="~{/components/nav-left}">
+
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+
+                <link th:replace="~{/components/nav-top}">
+
+                <!--Contenido-->
+
+                <h1 class="h3 mb-2 text-gray-800"> Agregar un nuevo rol</h1>
+                <form th:action="@{/rol/new}" th:method="post" th:object="${rol}">
+                    <div>
+                        <div class="form-group col-sm-6">
+                            <label for="rol-tipo-new">Nombre</label>
+                            <input type="text" class="form-control" id="rol-tipo-new" placeholder="nombre" name="
+                        nombre" th:value="*{nombre_rol}" th:field="*{nombre_rol}">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="rol-id-new">Id</label>
+                            <input type="text" class="form-control" id="rol-id-new" placeholder="Id" name="
+                        id" th:value="*{id_rol}" th:field="*{id_rol}">
+                        </div>
+                        <a th:href="@{/rol/}" class="btn btn-secondary" type="button"><i class="corner-up-left"></i>Regresar</a>
+                        <button class="form-group btn btn-primary" type="submit">Adicionar rol</button>
+                    </div>
+                </form>
+            </div>
+
+            <link th:replace="~{/components/footer}">
+        </div>
+    </div>
+
+    <!-- ERROR-MODAL-->
+
+    <link th:replace="~{/components/script}">
+
+</body>
+
+</html>

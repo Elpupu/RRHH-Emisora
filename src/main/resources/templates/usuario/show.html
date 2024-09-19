@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Delegación de Gaviota - Usuario></title>
+
+    <link th:replace="~{/components/style}">
+
+</head>
+
+<body id="page-top">
+
+    <div id="wrapper">
+
+        <link th:replace="~{/components/nav-left}">
+
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+
+                <link th:replace="~{/components/nav-top}">
+
+                <!--Contenido-->
+                <h1 class="h3 mb-2 text-gray-800">Detalles del usuario</h1>
+                <div>
+                    <div class="form-group col-sm-6">
+                        <label for="persona-id-show"><b>Id</b></label>
+                        <label for="persona-id-show" th:text="${usuario.id_usuario}"></label>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="persona-nombre-show"><b>Correo</b></label>
+                        <label for="persona-nombre-show" th:text="${usuario.correo}"></label>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="persona-apellido1-show"><b>Clave</b></label>
+                        <label for="persona-apellido1-show" th:text="${usuario.clave}"></label>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="persona-apellido2-show"><b>Rol</b></label>
+                        <label for="persona-apellido2-show" th:text="${usuario.rol.nombre_rol}"></label>
+                    </div>
+                    
+                </div>
+                <a th:href="@{/usuario/}" class="btn btn-secondary" type="button"><i class="corner-up-left"></i>Regresar</a>
+            </div>
+
+            <link th:replace="~{/components/footer}">
+        </div>
+    </div>
+
+    <!-- ERROR-MODAL-->
+
+    <link th:replace="~{/components/script}">
+
+</body>
+
+</html>

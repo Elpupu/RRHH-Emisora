@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Delegación de Gaviota - Color de Piel</title>
+
+    <link th:replace="~{/components/style}">
+
+</head>
+
+<body id="page-top">
+
+    <div id="wrapper">
+
+        <link th:replace="~{/components/nav-left}">
+
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+
+                <link th:replace="~{/components/nav-top}">
+
+                <!--Contenido-->
+                <h1 class="h3 mb-2 text-gray-800">Detalles de la piel</h1>
+                <div>
+                    <div class="form-group col-sm-6">
+                        <label for="piel-id-show"><b>Id</b></label>
+                        <label for="piel-id-show" th:text="${piel.id_piel}"></label>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="piel-nombre-show"><b>Tipo</b></label>
+                        <label for="piel-nombre-show" th:text="${piel.tipo_piel}"></label>
+                    </div>
+                </div>
+                <a th:href="@{/piel/}" class="btn btn-secondary" type="button"><i class="corner-up-left"></i>Regresar</a>
+            </div>
+
+            <link th:replace="~{/components/footer}">
+        </div>
+    </div>
+
+    <!-- ERROR-MODAL-->
+
+    <link th:replace="~{/components/script}">
+
+</body>
+
+</html>

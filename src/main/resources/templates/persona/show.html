@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Delegación de Gaviota - Persona></title>
+
+    <link th:replace="~{/components/style}">
+
+</head>
+
+<body id="page-top">
+
+    <div id="wrapper">
+
+        <link th:replace="~{/components/nav-left}">
+
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+
+                <link th:replace="~{/components/nav-top}">
+
+                <!--Contenido-->
+                <h1 class="h3 mb-2 text-gray-800">Detalles de la persona</h1>
+                <div>
+                    <div class="form-group col-sm-6">
+                        <label for="persona-id-show"><b>Ci</b></label>
+                        <label for="persona-id-show" th:text="${persona.ci}"></label>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="persona-nombre-show"><b>Nombre</b></label>
+                        <label for="persona-nombre-show" th:text="${persona.nombre_persona}"></label>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="persona-apellido1-show"><b>Primer Apellido</b></label>
+                        <label for="persona-apellido1-show" th:text="${persona.apellido1}"></label>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="persona-apellido2-show"><b>Segundo Apellido</b></label>
+                        <label for="persona-apellido2-show" th:text="${persona.apellido2}"></label>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="persona-salario-show"><b>Salario</b></label>
+                        <label for="persona-salario-show" th:text="${persona.salario}"></label>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="persona-id_mun-show"><b>Municipio</b></label>
+                        <label for="persona-id_mun-show" th:text="${persona.municipio.nombre_mun}"></label>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="persona-id_milit-show"><b>Militancia</b></label>
+                        <label for="persona-id_milit-show" th:text="${persona.militancia.nombre_milit}"></label>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="persona-id_piel-show"><b>Piel</b></label>
+                        <label for="persona-id_piel-show" th:text="${persona.piel.tipo_piel}"></label>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="persona-id_ne-show"><b>Nivel de Escolaridad</b></label>
+                        <label for="persona-id_ne-show" th:text="${persona.nivel_escolaridad.nivel_esc}"></label>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="persona-pue-show"><b>Cargo en el centro</b></label>
+                        <label for="persona-pue-show" th:text="${persona.puesto_trabajo.nombre_puest}"></label>
+                    </div>
+                </div>
+                <a th:href="@{/persona/}" class="btn btn-secondary" type="button"><i class="corner-up-left"></i>Regresar</a>
+            </div>
+
+            <link th:replace="~{/components/footer}">
+        </div>
+    </div>
+
+    <!-- ERROR-MODAL-->
+
+    <link th:replace="~{/components/script}">
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Delegación de Gaviota - Nivel_Escolaridad</title>
+
+    <link th:replace="~{/components/style}">
+
+</head>
+
+<body id="page-top">
+
+    <div id="wrapper">
+
+        <link th:replace="~{/components/nav-left}">
+
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+
+                <link th:replace="~{/components/nav-top}">
+
+                <!--Contenido-->
+
+                <h1 class="h3 mb-2 text-gray-800"> Editar un nuevo nivel de escolaridad</h1>
+                <form th:action="@{'/nivel_escolaridad/' + ${nivel_escolaridad.id_ne} + '/edit'}" th:method="post" th:object="${nivel_escolaridad}">
+                    <div>
+                        <div class="form-group col-sm-6">
+                            <label for="nivel-nombre-new">Nivel</label>
+                            <input type="text" class="form-control" id="nivel-nombre-new" placeholder="Nivel" name="
+                        nivel" th:value="*{nivel_esc}" th:field="*{nivel_esc}">
+                        </div>
+                        
+                        <a th:href="@{/nivel_escolaridad/}" class="btn btn-secondary" type="button"><i class="corner-up-left"></i>Regresar</a>
+                        <button class="form-group btn btn-primary" type="submit">Editar municipio</button>
+                    </div>
+                </form>
+            </div>
+
+            <link th:replace="~{/components/footer}">
+        </div>
+    </div>
+
+    <!-- ERROR-MODAL-->
+
+    <link th:replace="~{/components/script}">
+
+</body>
+
+</html>

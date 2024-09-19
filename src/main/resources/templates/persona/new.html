@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Delegación de Gaviota - Persona</title>
+
+    <link th:replace="~{/components/style}">
+
+</head>
+
+<body id="page-top">
+
+    <div id="wrapper">
+
+        <link th:replace="~{/components/nav-left}">
+
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+
+                <link th:replace="~{/components/nav-top}">
+
+                <!--Contenido-->
+
+                <h1 class="h3 mb-2 text-gray-800"> Agregar una nueva persona</h1>
+                <form th:action="@{/persona/new}" th:method="post" th:object="${persona}">
+                    <div>
+                        <div class="form-group col-sm-6">
+                            <label for="persona-nombre-new">Nombre</label>
+                            <input type="text" class="form-control" id="persona-nombre-new" placeholder="Nombre" name="
+                        nombre" th:value="*{nombre_persona}" th:field="*{nombre_persona}">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="persona-ci-new">Ci</label>
+                            <input type="text" class="form-control" id="persona-ci-new" placeholder="Ci" name="
+                        ci" th:value="*{ci}" th:field="*{ci}">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="persona-apellido1-new">Primer apellido</label>
+                            <input type="text" class="form-control" id="persona-apellido1-new" placeholder="Primer apellido"
+                                name="
+                            apellido1" th:value="*{apellido1}" th:field="*{apellido1}">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="persona-apellido2-new">Segundo apellido</label>
+                            <input type="text" class="form-control" id="persona-apellido2-new" placeholder="Segundo apellido"
+                                name="
+                            apellido2" th:value="*{apellido2}" th:field="*{apellido2}">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="persona-salario-new">Salario</label>
+                            <input type="text" class="form-control" id="persona-salario-new"
+                                placeholder="Salario" name="
+                            Salario" th:value="*{salario}" th:field="*{salario}">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="persona-municipio-new">Municipio</label>
+                            <select name="municipio" id="persona-municipio-new" class="form-control" th:field="*{municipio}">
+                                <option th:each="mun: ${municipios}" 
+                                        th:value="${{mun}}" 
+                                        th:text="${mun.nombre_mun}">
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="persona-militancia-new">Militancia</label>
+                            <select name="militancia" id="persona-militancia-new" class="form-control" th:field="*{militancia}">
+                                <option th:each="mil: ${militancias}" 
+                                        th:value="${{mil}}" 
+                                        th:text="${mil.nombre_milit}">
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="persona-piel-new">Piel</label>
+                            <select name="piel" id="persona-piel-new" class="form-control"
+                                th:field="*{piel}">
+                                <option th:each="pil: ${piels}" th:value="${{pil}}" th:text="${pil.tipo_piel}">
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="persona-nivel-new">Nivel de Escolaridad</label>
+                            <select name="nivel_escolaridad" id="persona-nivel-new" class="form-control"
+                                th:field="*{nivel_escolaridad}">
+                                <option th:each="niv: ${nivel_escolaridads}" th:value="${{niv}}" th:text="${niv.nivel_esc}">
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="persona-pue-new">Cargo en el centro</label>
+                            <select name="puesto_trabajo" id="persona-pue-new" class="form-control"
+                                th:field="*{puesto_trabajo}">
+                                <option th:each="pue: ${puesto_trabajos}" th:value="${{pue}}" th:text="${pue.nombre_puest}">
+                                </option>
+                            </select>
+                        </div>
+                        <a th:href="@{/persona/}" class="btn btn-secondary" type="button"><i
+                                class="corner-up-left"></i>Regresar</a>
+                        <button class="form-group btn btn-primary" type="submit">Adicionar persona</button>
+                    </div>
+                </form>
+            </div>
+
+            <link th:replace="~{/components/footer}">
+        </div>
+    </div>
+
+    <!-- ERROR-MODAL-->
+
+    <link th:replace="~{/components/script}">
+
+</body>
+
+</html>

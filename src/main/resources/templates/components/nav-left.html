@@ -1,0 +1,90 @@
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3"> <sup>Delegación de Gaviota</sup></div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item active">
+        <a class="nav-link" href="/">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Portada</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Gestion
+    </div>
+
+    <!-- Nav Item - Tables -->
+    <li class="nav-item">
+        <a class="nav-link" href="/municipio/">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Municipio</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/militancia/">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Militancia</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/piel/">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Color de piel</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/nivel_escolaridad/">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Nivel de escolaridad</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/puesto_trabajo/">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Cargo en el centro</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/persona/">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Persona</span></a>
+    </li>
+
+
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading" sec:authorize="hasRole('ADMIN')">
+        Seguridad
+    </div>
+    <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+        <a class="nav-link" href="/rol/">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Rol</span></a>
+    </li>
+    <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+        <a class="nav-link" href="/usuario/">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Usuario</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block" sec:authorize="hasRole('ADMIN')">
+
+
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+</ul>
